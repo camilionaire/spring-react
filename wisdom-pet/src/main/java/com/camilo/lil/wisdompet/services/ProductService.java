@@ -22,17 +22,12 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
-    public List<Product> getAllProduct(String filterEmail) {
+    public List<Product> getAllProduct() {
+        Iterable<ProductEntity> productEntities = this.productRepository.findAll();
         List<Product> products = new ArrayList<>();
-        if (StringUtils.hasLength(filterEmail)) {
-            ProductEntity entity = this.productRepository.findByEmail(filterEmail);
-            products.add(this.translateDbToWeb(entity));
-        } else {
-            Iterable<ProductEntity> entities = this.productRepository.findAll();
-            entities.forEach(entity -> {
-                products.add(this.translateDbToWeb(entity));
-            });
-        }
+        productEntities.forEach(productEntity -> {
+            products.add(translateDbToWeb(productEntity));
+        });
         return products;
     }
 

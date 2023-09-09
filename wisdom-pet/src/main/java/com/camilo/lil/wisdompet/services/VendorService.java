@@ -20,17 +20,12 @@ public class VendorService {
         this.vendorRepository = vendorRepository;
     }
 
-    public List<Vendor> getAllVendor(String filterEmail) {
+    public List<Vendor> getAllVendor() {
+        Iterable<VendorEntity> entities = this.vendorRepository.findAll();
         List<Vendor> vendors = new ArrayList<>();
-        if (StringUtils.hasLength(filterEmail)) {
-            VendorEntity entity = this.vendorRepository.findByEmail(filterEmail);
+        entities.forEach(entity -> {
             vendors.add(this.translateDbToWeb(entity));
-        } else {
-            Iterable<VendorEntity> entities = this.vendorRepository.findAll();
-            entities.forEach(entity -> {
-                vendors.add(this.translateDbToWeb(entity));
-            });
-        }
+        });
         return vendors;
     }
 

@@ -13,11 +13,8 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Product {
-
-    public Long productId;
-    public String name;
-    public BigDecimal price;
-    public Long vendorId;
-
+public class Service {
+    private Long serviceId;
+    private BigDecimal price;
+    private String name;
 }

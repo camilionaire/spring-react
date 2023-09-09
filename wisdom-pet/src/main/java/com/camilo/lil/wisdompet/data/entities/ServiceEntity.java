@@ -7,12 +7,13 @@ import lombok.ToString;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "PRODUCTS")
+@Table(name = "SERVICES")
 @Data
 @ToString
-public class ProductEntity {
+public class ServiceEntity {
+
     @Id
-    @Column(name = "PRODUCT_ID")
+    @Column(name = "SERVICE_ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
@@ -21,8 +22,4 @@ public class ProductEntity {
 
     @Column(name = "PRICE")
     private BigDecimal price;
-
-    @Column(name = "VENDOR_ID")
-    private long vendorId;
-
 }
