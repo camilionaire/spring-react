@@ -20,7 +20,7 @@ public class CustomerService {
         this.customerRepository = customerRepository;
     }
 
-    public List<Customer> getAllCustomer(String filterEmail) {
+    public List<Customer> getAllCustomers(String filterEmail) {
         List<Customer> customers = new ArrayList<>();
         if (StringUtils.hasLength(filterEmail)) {
             CustomerEntity entity = this.customerRepository.findByEmail(filterEmail);

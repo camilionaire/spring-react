@@ -20,7 +20,7 @@ public class VendorService {
         this.vendorRepository = vendorRepository;
     }
 
-    public List<Vendor> getAllVendor() {
+    public List<Vendor> getAllVendors() {
         Iterable<VendorEntity> entities = this.vendorRepository.findAll();
         List<Vendor> vendors = new ArrayList<>();
         entities.forEach(entity -> {

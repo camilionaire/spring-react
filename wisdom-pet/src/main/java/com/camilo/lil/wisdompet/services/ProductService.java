@@ -22,7 +22,7 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
-    public List<Product> getAllProduct() {
+    public List<Product> getAllProducts() {
         Iterable<ProductEntity> productEntities = this.productRepository.findAll();
         List<Product> products = new ArrayList<>();
         productEntities.forEach(productEntity -> {
